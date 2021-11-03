@@ -1,3 +1,4 @@
 <resources>
     <string name="empty_place_holder">"-"</string>
+    <string name="app_name"> my app</string>
 </resources>
