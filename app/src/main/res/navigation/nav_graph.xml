@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/incidentListFragment"
-        android:name="com.example.myapplication.features.incident.ui.incidentListFragment"
+        android:name="com.example.myapplication.features.incident.ui.IncidentListFragment"
         android:label="incidentListFragment"
         tools:layout="@layout/fragment_incident_list"/>
 </navigation>

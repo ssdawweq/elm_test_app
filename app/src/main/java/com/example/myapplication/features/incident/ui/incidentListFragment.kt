@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.commen.ViewState
 import com.example.myapplication.databinding.FragmentIncidentListBinding
