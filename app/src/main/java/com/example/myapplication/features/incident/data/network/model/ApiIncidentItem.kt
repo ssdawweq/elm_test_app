@@ -15,9 +15,9 @@ data class ApiIncidentItem(
     @SerializedName("issuerId")
     val issuerId: String?,
     @SerializedName("latitude")
-    val latitude: Int?,
+    val latitude: Double?,
     @SerializedName("longitude")
-    val longitude: Int?,
+    val longitude: Double?,
     @SerializedName("medias")
     val medias: List<ApiMediaItem>?,
     @SerializedName("priority")
