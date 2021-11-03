@@ -5,9 +5,9 @@ import com.example.myapplication.features.incident.data.network.IncidentRetrofit
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import javax.inject.Singleton
+import dagger.hilt.components.SingletonComponent
 
-@InstallIn(Singleton::class)
+@InstallIn(SingletonComponent::class)
 @Module
 abstract class NetworkModule {
 
