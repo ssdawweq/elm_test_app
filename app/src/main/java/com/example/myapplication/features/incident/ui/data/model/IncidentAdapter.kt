@@ -11,7 +11,7 @@ class IncidentAdapter: ListAdapter<UiIncident, IncidentAdapter.IncidentViewHolde
 
     class IncidentViewHolder(val binding: IncidentItemListBinding) : RecyclerView.ViewHolder(binding.root) {
         fun binding(uiIncident: UiIncident) = with(binding){
-            tvDateOfCreation.text = uiIncident.creationDate
+            tvIncidentType.text = uiIncident.incidentType
             tvIncidentDescription.text = uiIncident.description
         }
     }

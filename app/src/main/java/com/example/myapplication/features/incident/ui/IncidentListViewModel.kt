@@ -17,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class IncidentListViewModel @Inject constructor(
     private val incidentRepository: IncidentRepositoryInterface,
-    private val uiIncidentMapper: UiIncidentMapper,
+    private val uiIncidentMapper: UiIncidentMapper
 ) : ViewModel() {
 
     private val _incidents: MutableStateFlow<ViewState<List<UiIncident>>> = MutableStateFlow(ViewState.Loading())
@@ -26,8 +26,13 @@ class IncidentListViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             _incidents.emit(ViewState.Loading())
             val viewState = when(val result = incidentRepository.getIncident()) {
-                is Result.Success -> ViewState.Succes(result.value.map { uiIncidentMapper.mapTo(it) })
                 is Result.Failure -> ViewState.Error(result.errorHolder.message)
+                is Result.Success -> {
+                    when(val result2 = incidentRepository.getIncidentTypes()) {
+                        is Result.Failure -> ViewState.Error(result2.errorHolder.message)
+                        is Result.Success -> ViewState.Succes(result.value.map { uiIncidentMapper.mapTo(it to result2.value) })
+                    }
+                }
             }
             _incidents.emit(viewState)
         }
